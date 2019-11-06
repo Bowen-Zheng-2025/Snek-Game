@@ -72,6 +72,27 @@ checks to see if it is in snake
 @param snake {array} an array of the cords of the snake
 @return {array} a map with the food placed on it.
 */
+/*
+snek = [{x:2, y:3}, {x:3, y:3}]...
+[["","O"]...]
+length , width    0 - dimension-1
+                    x & y
+                    for (in snake) {
+                      if (demX != snakeX && demY != snakeY)
+                      place food
+                    }
+*/
 function placeFood(map, snake) {
-  
+  var retArr = [];
+  var food = "*";
+  for (var i = 0; i < map; i++) {
+    if (i < map) {
+      return Math.random(food);
+    }
+  }
+  for (var j = 0; j < snake; j++) {
+    if () {
+
+    }
+  }
 }
