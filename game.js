@@ -39,7 +39,7 @@ function borderMap(text) {
   var retStr = "+";
   var width = text[0].length;
   for (var i = 0; i < width; i++) { retStr += "-"; }
-  retStr += "+";
+  retStr += "+<br>";
   for (var i = 0; i < text.length; i++) {
     retStr += "|" + implode(text[i]) + "|<br>";
   }
