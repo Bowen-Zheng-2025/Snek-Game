@@ -21,6 +21,7 @@ function makeMap(xVal, yVal) {
 @return {string} a string of the array
 */
 function implode(array) {
+<<<<<<< HEAD
   var retSring = "";
   var index = 0;
   while (index < array.length) {
@@ -28,6 +29,15 @@ retSring=  retSring +array[index]
     index ++
   }
   return  retSring ;
+=======
+  var retString = "";
+  var index = 0;
+  while (index < array.length) {
+    retString += array[index];
+    index ++;
+  }
+  return retString;
+>>>>>>> e9bcd3031156f83bd51d2856a907a4ad79736c44
 }
 /* borderMap(text)
 a function to take a 2 dimensional array and turn it into a single string of
@@ -37,6 +47,7 @@ text, making each inner array a line of text. Also decorates with a text border
 */
 function borderMap(text) {
   var retStr = "+";
+<<<<<<< HEAD
   var width= text[0].length;
 for (var i = 0; i < width ; i++) {retStr+="-"}
 retStr+="+";
@@ -47,4 +58,16 @@ retStr+="+";
    for (var i = 0; i < width ; i++) {retStr+="-"}
    retStr+="+";
    return retStr;
+=======
+  var width = text[0].length;
+  for (var i = 0; i < width; i++) { retStr += "-"; }
+  retStr += "+";
+  for (var i = 0; i < text.length; i++) {
+    retStr += "|" + implode(text[i]) + "|<br>";
+  }
+  retStr += "+";
+  for (var i = 0; i < width; i++) { retStr += "-"; }
+  retStr += "+";
+  return retStr;
+>>>>>>> e9bcd3031156f83bd51d2856a907a4ad79736c44
 }
