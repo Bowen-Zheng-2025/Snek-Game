@@ -57,7 +57,7 @@ function neighborCoord(coord, width, height) {
   //want to be 0 or greater
   //want to be less than width or height
   var xUse = false;
-  if (Math.random() < .5 ) { xUse == true; }//determines if we are using x or y
+  if (Math.random() < .5 ) { xUse = true; }//determines if we are using x or y
   if (xUse){
     var left = false;
     if (Math.random() < .5 && coord.x > 0) {left = true; }
@@ -68,9 +68,9 @@ function neighborCoord(coord, width, height) {
   else{
     var up = false;
     if (Math.random() < .5 && coord.y > 0) {up = true; }
-    if (coord.y > width -2) {up = true;}
-    if (up) {return {y: coord.y - 1, x : coord.x};}
-    else {return {y: coord.y + 1, x: coord.x};}
+    if (coord.y > height -2) {up = true;}
+    if (up) {return {x: coord.x , y : coord.y -1};}
+    else {return {x: coord.x, y: coord.y +1};}
   }
 }
 /* borderMap(text)
