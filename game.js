@@ -150,5 +150,6 @@ function placeSnake(map) {
   var length = map.length;
   var snake = [];
   snake[0] = ranCoord(width, height);
-
+  snake[1] = neighborCoord(snake[0], width, height);
+  return snake;
 }
