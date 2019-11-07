@@ -82,17 +82,28 @@ length , width    0 - dimension-1
                       place food
                     }
 */
-function placeFood(map, snake) {
-  var retArr = [];
-  var food = "*";
-  for (var i = 0; i < map; i++) {
-    if (i < map) {
-      return Math.random(food);
+function placeFood(map, snake, food="*") {
+  var width = map[0].length;
+  var length = map.length;
+  var placed = false;
+  while (!placed) {
+    var coordTst = ranCoord(width, length);
+    var matched = false;
+    for (coord in snake) {
+          if (coordTst.x == coord.x && coordTst.y == coord.y) {
+            matched = true;
+          }
+    }
+    if (!matched) {
+      map[coordTst.y][coordTst.x] = food;
+      return map;
     }
   }
-  for (var j = 0; j < snake; j++) {
-    if () {
+}
 
-    }
-  }
+function ranCoord(xVal, yVal){
+  var retObj = {};
+  retObj.x = Math.floor(Math.random() * xVal);
+  retObj.y = Math.floor(Math.random() * yVal);
+  return retObj;
 }
