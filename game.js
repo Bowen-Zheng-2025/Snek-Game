@@ -90,8 +90,6 @@ function placeFood(map, snake, food="*") {
     var coordTst = ranCoord(width, length);
     var matched = false;
     for (obj in snake) {
-      console.log(snake[obj]);
-      console.log("coordTst.x = " + coordTst.x + " coord.x = " + coord.x);
           if (coordTst.x == snake[obj].x && coordTst.y == snake[obj].y) {
             matched = true;
           }
