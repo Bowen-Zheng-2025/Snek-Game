@@ -16,6 +16,22 @@ function makeMap(xVal, yVal) {
   }
   return retArray;
 }
+/* seeSnake(map, snake)
+make a drawing of the snake on the map
+the snake is represented by a large O for the head and a smaller o for the body
+ @param array {map} 2d array
+ @param {snake} array of coordnates
+ @return [map] modded map
+*/
+function seeSnake(map, snake) {
+  //put head on map
+  map[snake[0].y][snake[0].x] = "O";
+  //make rest of body
+  for (var i = 1; i < snake.length; i++) {
+    map[snake[i].y][snake[i].x] = "o";
+  }
+  return map;
+}
 /* implode(arr)
 @param arr {array} an array to be converted to a string
 @return {string} a string of the array
@@ -149,7 +165,7 @@ function placeSnake(map) {
   var width = map[0].length;
   var length = map.length;
   var snake = [];
-  snake[0] = ranCoord(width, height);
-  snake[1] = neighborCoord(snake[0], width, height);
+  snake[0] = ranCoord(width, length);
+  snake[1] = neighborCoord(snake[0], width, length);
   return snake;
 }
