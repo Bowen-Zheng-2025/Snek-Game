@@ -146,7 +146,7 @@ function placeFood(map, snake, food="*") {
           if (coordTst.x == snake[obj].x && coordTst.y == snake[obj].y) {
             matched = true;
           }
-    }
+        }
     if (!matched) {
        map[coordTst.y][coordTst.x] = food;
       return map;
