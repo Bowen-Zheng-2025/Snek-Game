@@ -12,16 +12,16 @@ document.getElementById("score").innerHTML = "score =" + score;
 
 document.addEventListener('keydown', function(event) {
   if (event.key == 'w') {
-    document.getElementById("wKey").style.background = "#ff00ff";
+    document.getElementById("wKey").style.background = "#FFFF00";
   }
   if (event.key == "a") {
-    document.getElementById("aKey").style.background = "#ff00ff";
+    document.getElementById("aKey").style.background = "#FFFF00";
   }
   if (event.key == "s") {
-    document.getElementById("sKey").style.background = "#ff00ff";
+    document.getElementById("sKey").style.background = "#FFFF00";
   }
   if (event.key == "d") {
-    document.getElementById("dKey").style.background = "#ff00ff";
+    document.getElementById("dKey").style.background = "#FFFF00";
   }
 });
 
