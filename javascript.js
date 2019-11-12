@@ -9,7 +9,31 @@ document.getElementById("map").innerHTML = borderMap(map);
 document.getElementById("score").innerHTML = "score =" + score;
 
 document.addEventListener('keydown', function(event) {
-  if (event.code == 'z') {
-    console.log("Adrian has no smarts");
+  if (event.key == 'w') {
+    document.getElementById("wKey").style.background = "#ff00ff";
+  }
+  if (event.key == "a") {
+    document.getElementById("aKey").style.background = "#ff00ff";
+  }
+  if (event.key == "s") {
+    document.getElementById("sKey").style.background = "#ff00ff";
+  }
+  if (event.key == "d") {
+    document.getElementById("dKey").style.background = "#ff00ff";
+  }
+});
+
+document.addEventListener('keyup', function(event) {
+  if (event.key == 'w') {
+    document.getElementById("wKey").style.background = "#f0f0f2";
+  }
+  if (event.key == "a") {
+    document.getElementById("aKey").style.background = "#f0f0f2";
+  }
+  if (event.key == "s") {
+    document.getElementById("sKey").style.background = "#f0f0f2";
+  }
+  if (event.key == "d") {
+    document.getElementById("dKey").style.background = "#f0f0f2";
   }
 });
