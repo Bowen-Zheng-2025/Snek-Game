@@ -202,7 +202,7 @@ function moveSnake(snake, dir, food) {
   if (dir == "d") {
     snake.unshift({x: snake[0].x +1, y: snake[0].y});
   }
-  if (!food) {
+  if (!(snake[0].x == food.x && snake[0].y == food.y)) {
     snake.pop();
   }
   return  snake;
