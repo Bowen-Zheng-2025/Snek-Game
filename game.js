@@ -181,13 +181,13 @@ does the remove before the addition
 */
 function moveSnake(snake, dir, food=false) {
   if (dir == "w"){
-    snake.unshift({x: snake[0].x, y: snake[0].y +1});
+    snake.unshift({x: snake[0].x, y: snake[0].y -1});
   }
   if (dir == "a") {
     snake.unshift({x: snake[0].x -1, y: snake[0].y});
   }
   if (dir == "s") {
-    snake.unshift({x: snake[0].x, y: snake[0].y -1});
+    snake.unshift({x: snake[0].x, y: snake[0].y +1});
   }
   if (dir == "d") {
     snake.unshift({x: snake[0].x +1, y: snake[0].y});
