@@ -35,25 +35,25 @@ document.addEventListener('keyup', function(event) {
     //add the new coordinates to the front of the snake array
     //Remove the last item in the array
     //Redraw the map
-    map = updateMap(snake, "w", food, width, length);
+    food = updateMap(snake, "w", food, width, length);
     var score = snake.length -2;
     document.getElementById("score").innerHTML = "score =" + score;
   }
   if (event.key == "a") {
     document.getElementById("aKey").style.background = "#f0f0f2";
-    map = updateMap(snake, "a", food, width, length);
+    food = updateMap(snake, "a", food, width, length);
     var score = snake.length -2;
     document.getElementById("score").innerHTML = "score =" + score;
   }
   if (event.key == "s") {
     document.getElementById("sKey").style.background = "#f0f0f2";
-    map = updateMap(snake, "s", food, width, length);
+    food = updateMap(snake, "s", food, width, length);
     var score = snake.length -2;
     document.getElementById("score").innerHTML = "score =" + score;
   }
   if (event.key == "d") {
     document.getElementById("dKey").style.background = "#f0f0f2";
-    map = updateMap(snake, "d", food, width, length);
+    food = updateMap(snake, "d", food, width, length);
     var score = snake.length -2;
     document.getElementById("score").innerHTML = "score =" + score;
   }

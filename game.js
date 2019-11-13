@@ -208,12 +208,36 @@ function moveSnake(snake, dir, food) {
   return  snake;
 }
 /*updateMap(snake, key, food, width, length)
+is a wrapper function that has all of the asignments
+ @param snake {array} an array of x and y key objects
+ @param key {string} a single character string that is w, a, s, or d
+ @param food {object} a food object with x, y, and food keys
+ @param width {int} the max x value for the map
+ @param length {int} the max y value for the map
+ @return {array} the updated version of the map with the snake and food on it
 */
 function updateMap(snake, key, food, width, length) {
   snake = moveSnake(snake, key, food);
   map = makeMap(width, length);
   map = seeSnake(map, snake);
+  food = checkAte(map, snake, food);
   map = seeFood(map, food);
   document.getElementById("map").innerHTML = borderMap(map);
-  return map;
+  return food;
+}
+
+/* checkAte(map, snake, food)
+A function to see if the current food location is the location of the snake head
+if so, makes a new location for the food
+@param map {array} a 2d array of elements that are single string characters
+@param snake {array} an array of x & y keyed objects
+@param food {object} an object with x, y, & food keys that is the location of
+the food.
+@return {object} the new or same location of the food.
+*/
+function checkAte(map, snake, food) {
+  if (snake[0].x == food.x && snake[0].y == food.y) {
+    return makeFood(map, snake, food.food);
+  }
+  return food;
 }
