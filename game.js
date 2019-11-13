@@ -241,3 +241,10 @@ function checkAte(map, snake, food) {
   }
   return food;
 }
+
+/*checkColision(snake, width, length)
+@param {array}  an array of x & y keyed objects
+@param width {int} the max x value for the map
+@param length {int} the max y value for the map
+@return {bool} true if colision
+*/
