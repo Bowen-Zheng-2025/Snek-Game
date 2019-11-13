@@ -118,16 +118,24 @@ function borderMap(text) {
       retStr += "+";
   return retStr;
 }
-
-/* makeFood(map, snake)
+/* placeFood(map, snake)
 uses brute force to try to place food on the map. Rolls a random location, then
 checks to see if it is in snake
 @param map {array} an array of arrays
 @param snake {array} an array of the cords of the snake
-@return {object} an object with x and y coordinates that are good for
-food placement and a food key with the icon for the food.
+@return {array} a map with the food placed on it.
 */
-function makeFood(map, snake, food="*") {
+/*
+snek = [{x:2, y:3}, {x:3, y:3}]...
+[["","O"]...]
+length , width    0 - dimension-1
+                    x & y
+                    for (in snake) {
+                      if (demX != snakeX && demY != snakeY)
+                      place food
+                    }
+*/
+function placeFood(map, snake, food="*") {
   var width = map[0].length;
   var length = map.length;
   var placed = false;
@@ -140,22 +148,13 @@ function makeFood(map, snake, food="*") {
           }
         }
     if (!matched) {
-      coordTst.food = food;
-      return coordTst;
+       map[coordTst.y][coordTst.x] = food;
+      return map;
     }
   }
 }
 
-/* seeFood(map, food)
-makes the food visable on the map
-@param map {array} an 2d array of strings of text
-@param food {object} a food object with x, y, and food keys
-@return {array}a modified map
-*/
-function seeFood(map, food) {
-  map[food.y][food.x] = food.food;
-  return map;
-}
+
 /*placeSnake(map)
  function to place snake on a map. A snake is an array of locations.
  It does not actually reside on the map, so this function simply makes an array of two side by side locations.
@@ -180,30 +179,6 @@ does the remove before the addition
 @param food {bool} if there is a food
 @return the new location for the snake
 */
-/* moveSnake(snake, dir, food)
-takes a snake array and adds a new item to the front of it in direction dir. (n, s, e w)
-removes last item from the snake array as well, if food is equal to false
-does the remove before the addition
-@prama snake {array} an array represeting a snake
-@prama dir {string} the string "w", "a", "s", or "d"
-@param food {object} the location of the food
-@return {array}the new location for the snake
-*/
-function moveSnake(snake, dir, food) {
-  if (dir == "w"){
-    snake.unshift({x: snake[0].x, y: snake[0].y -1});
-  }
-  if (dir == "a") {
-    snake.unshift({x: snake[0].x -1, y: snake[0].y});
-  }
-  if (dir == "s") {
-    snake.unshift({x: snake[0].x, y: snake[0].y +1});
-  }
-  if (dir == "d") {
-    snake.unshift({x: snake[0].x +1, y: snake[0].y});
-  }
-  if (!(snake[0].x == food.x && snake[0].y == food.y)) {
-    snake.pop();
-  }
-  return  snake;
+function moveSnake(snake, dir, food=false) {
+
 }
