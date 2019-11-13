@@ -207,3 +207,13 @@ function moveSnake(snake, dir, food) {
   }
   return  snake;
 }
+/*updateMap(snake, key, food, width, length)
+*/
+function updateMap(snake, key, food, width, length) {
+  snake = moveSnake(snake, key, food);
+  map = makeMap(width, length);
+  map = seeSnake(map, snake);
+  map = seeFood(map, food);
+  document.getElementById("map").innerHTML = borderMap(map);
+  return map;
+}
