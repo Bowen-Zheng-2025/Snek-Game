@@ -218,6 +218,7 @@ is a wrapper function that has all of the asignments
 */
 function updateMap(snake, key, food, width, length) {
   snake = moveSnake(snake, key, food);
+  if (checkCollision(snake, width, length)) {return true;}
   map = makeMap(width, length);
   map = seeSnake(map, snake);
   food = checkAte(map, snake, food);
@@ -237,14 +238,34 @@ the food.
 */
 function checkAte(map, snake, food) {
   if (snake[0].x == food.x && snake[0].y == food.y) {
-    return makeFood(map, snake, food.food);
+    return makeFood(map, snake, food.food)
   }
   return food;
 }
 
-/*checkColision(snake, width, length)
+/*checkCollision(snake, width, length)
 @param {array}  an array of x & y keyed objects
 @param width {int} the max x value for the map
 @param length {int} the max y value for the map
 @return {bool} true if colision
 */
+function checkCollision(snake, width, length) {
+  if (snake[0].x >= width) {
+    return true;
+  }
+  if (snake[0].x < 0) {
+    return true;
+  }
+  if (snake[0].y >= length) {
+    return true;
+  }
+  if (snake[0].y < 0) {
+    return true;
+  }
+  for (var i = 1; i < snake.length; i++) {
+    if ((snake[0].x == snake[i].x) && (snake[0].y == snake[i].y)) {
+      return true;
+    }
+  }
+  return false;
+}
