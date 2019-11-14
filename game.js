@@ -32,6 +32,17 @@ function seeSnake(map, snake) {
   }
   return map;
 }
+
+function deadSnake(map, snake) {
+  //put head on map
+  map[snake[0].y][snake[0].x] = "X";
+  //make rest of body
+  for (var i = 1; i < snake.length; i++) {
+    map[snake[i].y][snake[i].x] = "x";
+  }
+  return map;
+}
+
 /* implode(arr)
 @param arr {array} an array to be converted to a string
 @return {string} a string of the array
@@ -217,8 +228,12 @@ is a wrapper function that has all of the asignments
  @return {array} the updated version of the map with the snake and food on it
 */
 function updateMap(snake, key, food, width, length) {
+  var deadMap = makeMap(width, length);
+  deadMap = deadSnake(map, snake);
   snake = moveSnake(snake, key, food);
-  if (checkCollision(snake, width, length)) {return true;}
+  if (checkCollision(snake, width, length)) {
+    document.getElementById("map").innerHTML = borderMap(deadMap);
+    return true;}
   map = makeMap(width, length);
   map = seeSnake(map, snake);
   food = checkAte(map, snake, food);

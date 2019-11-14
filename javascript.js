@@ -39,27 +39,46 @@ document.addEventListener('keyup', function(event) {
     food = updateMap(snake, "w", food, width, length);
     if (typeof food === "boolean") {alive = false;}
     var score = snake.length -2;
-    document.getElementById("score").innerHTML = "score =" + score;
+    document.getElementById("score").innerHTML = "score = " + score;
+    if(!alive) {document.getElementById("score").innerHTML = "You lost with a score of " + score;}
   }
   if (event.key == "a" && alive) {
     document.getElementById("aKey").style.background = "#f0f0f2";
     food = updateMap(snake, "a", food, width, length);
     if (typeof food === "boolean") {alive = false;}
     var score = snake.length -2;
-    document.getElementById("score").innerHTML = "score =" + score;
+    document.getElementById("score").innerHTML = "score = " + score;
+    if(!alive) {document.getElementById("score").innerHTML = "You lost with a score of " + score;}
   }
   if (event.key == "s" && alive) {
     document.getElementById("sKey").style.background = "#f0f0f2";
     food = updateMap(snake, "s", food, width, length);
     if (typeof food === "boolean") {alive = false;}
     var score = snake.length -2;
-    document.getElementById("score").innerHTML = "score =" + score;
+    document.getElementById("score").innerHTML = "score = " + score;
+    if(!alive) {document.getElementById("score").innerHTML = "You lost with a score of " + score;}
   }
   if (event.key == "d" && alive) {
     document.getElementById("dKey").style.background = "#f0f0f2";
     food = updateMap(snake, "d", food, width, length);
     if (typeof food === "boolean") {alive = false;}
     var score = snake.length -2;
-    document.getElementById("score").innerHTML = "score =" + score;
+    document.getElementById("score").innerHTML = "score = " + score;
+    if(!alive) {document.getElementById("score").innerHTML = "You lost with a score of " + score;}
   }
 });
+document.getElementById("newbtn").addEventListener('click', function() {
+  alive = true;
+  var map = makeMap(width, length);
+  snake = placeSnake(map);
+  map = seeSnake(map, snake);
+  food = makeFood(map, snake);
+  map = seeFood(map, food);
+  var score = snake.length -2;
+  document.getElementById("map").innerHTML = borderMap(map);
+  document.getElementById("score").innerHTML = "score =" + score;
+  document.getElementById("wKey").style.background = "#f0f0f2";
+  document.getElementById("aKey").style.background = "#f0f0f2";
+  document.getElementById("dKey").style.background = "#f0f0f2";
+  document.getElementById("sKey").style.background = "#f0f0f2";
+})
